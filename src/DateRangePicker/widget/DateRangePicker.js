@@ -16,11 +16,12 @@ define([
 	"dojo/query",
     "dojo/text!DateRangePicker/widget/template/DateRangePicker.html",
 	"dojo/text!DateRangePicker/widget/template/DateRangePicker_Mx7.html",
-    "DateRangePicker/lib/jquery-1.12.4",
-	"DateRangePicker/lib/moment",
-	"DateRangePicker/lib/daterangepicker-3.0.3"
+    "dojo/i18n!DateRangePicker/widget/nls/messages",
+    "jquery",
+    "moment",
+    "daterangepicker"
 
-], function(declare, _WidgetBase, _TemplatedMixin, dom, domClass, dojoOn, dojoConstruct, dojoHtml, dojoQuery, widgetTemplate, widgetTemplate_Mx7, $) {
+], function(declare, _WidgetBase, _TemplatedMixin, dom, domClass, dojoOn, dojoConstruct, dojoHtml, dojoQuery, widgetTemplate, widgetTemplate_Mx7, localMessages, $) {
     "use strict";
 
 	function getMxVersion () {
@@ -221,6 +222,10 @@ define([
 			if (this.useCustomDateFormat) {
 				params.locale.format = this.customDateFormat;	
 			}
+
+            if (this.useTranslation) { 
+                $.extend(params.locale, localMessages);
+            }
 			
             this.params = params;
         },
@@ -405,4 +410,4 @@ define([
         }
     });
 });
-require([ "DateRangePicker/widget/DateRangePicker" ]);
+//require([ "DateRangePicker/widget/DateRangePicker" ]);

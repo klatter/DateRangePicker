@@ -50,6 +50,11 @@
             <category>Display</category>
             <description>Tooltip on the calendar icon.</description>
         </property>
+        <property key="useTranslation" type="boolean" defaultValue="false">
+            <caption>Use translations</caption>
+            <category>Display</category>
+            <description>Uses localized translation (Dutch, English)</description>
+        </property>
 		<!-- Date Picker options -->
 		<property key="useCustomDateFormat" type="boolean" defaultValue="false">
             <caption>Use custom date format</caption>
